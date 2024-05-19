@@ -609,12 +609,12 @@ GameObject:
   - component: {fileID: 1112366260}
   - component: {fileID: 1112366259}
   - component: {fileID: 1112366258}
-  - component: {fileID: 1112366257}
   - component: {fileID: 1112366256}
+  - component: {fileID: 1112366263}
   - component: {fileID: 1112366262}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -646,19 +646,6 @@ MonoBehaviour:
   bowPosition: {fileID: 2095650075}
   arrowSpeed: 10
   arrowLifetime: 1
---- !u!114 &1112366257
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1112366255}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d0cc5bee998e94d4cae8f5a3b7c51123, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  climbSpeed: 2.5
 --- !u!61 &1112366258
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -821,6 +808,20 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1112366263
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1112366255}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c45b4feec8c3655488e29489575151e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rb: {fileID: 1112366259}
+  climbSpeed: 3
 --- !u!1 &1299592062
 GameObject:
   m_ObjectHideFlags: 0
