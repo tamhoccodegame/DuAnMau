@@ -70,7 +70,7 @@ public class PlayerController : MonoBehaviour
 
     void Dodge()
     {
-        if (Input.GetKeyDown(KeyCode.R) && dodgeTime <= 0) // Khi nhấn phím R và thời gian dodge đã hết
+        if (Input.GetKeyDown(KeyCode.LeftShift) && dodgeTime <= 0) // Khi nhấn phím Shift và thời gian dodge đã hết
         {
             anim.SetBool("isDodging", true); // Kích hoạt animation dodge
             moveSpeed += dodgeSpeed; // Tăng tốc độ di chuyển
