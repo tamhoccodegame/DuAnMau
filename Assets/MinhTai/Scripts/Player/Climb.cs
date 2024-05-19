@@ -20,16 +20,28 @@ public class Climb : MonoBehaviour
     private void Update()
     {
         // Kiểm tra nếu người chơi đang ở gần cầu thang và nhấn phím leo lên hoặc xuống
-        if (nearLadder && (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S)))
+        if (nearLadder)
         {
-            isClimbing = true;
-            rb.gravityScale = 0f;
-            anim.SetBool("isClimbing", true);
+            if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.S))
+            {
+                isClimbing = true;
+            }
+
+            if (isClimbing)
+            {
+                rb.gravityScale = 0f;
+                anim.SetBool("isClimbing", true);
+            }
+            else
+            {
+                rb.gravityScale = 4f;
+                anim.SetBool("isClimbing", false);
+            }
         }
         else
         {
             isClimbing = false;
-            rb.gravityScale = 3f;
+            rb.gravityScale = 4f;
             anim.SetBool("isClimbing", false);
         }
     }
@@ -48,7 +60,7 @@ public class Climb : MonoBehaviour
         {
             nearLadder = false; // Đánh dấu Player không còn gần cầu thang
             isClimbing = false;
-            rb.gravityScale = 3f;
+            rb.gravityScale = 4f;
             anim.SetBool("isClimbing", false);
         }
     }
@@ -67,6 +79,11 @@ public class Climb : MonoBehaviour
                 climbInput = -1f; // Leo xuống
             }
             rb.velocity = new Vector2(rb.velocity.x, climbInput * climbSpeed);
+        }
+        else if (nearLadder)
+        {
+            // Nếu đang gần cầu thang nhưng không nhấn phím leo, giữ nguyên vị trí y
+            rb.velocity = new Vector2(rb.velocity.x, 0f);
         }
         else
         {
