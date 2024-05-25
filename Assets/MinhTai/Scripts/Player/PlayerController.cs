@@ -5,12 +5,14 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
-    public float jumpSpeed = 7f; // Tốc độ nhảy của nhân vật
+    [SerializeField] private float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
+    [SerializeField] private float jumpSpeed = 10f; // Tốc độ nhảy của nhân vật
+
     public float dodgeSpeed = 4f; // Tốc độ khi dodge (lộn)
     public float dodgeDirection = 0.5f; // Thời gian dodge
     private float dodgeTime; // Thời gian còn lại của dodge
     private bool isDodging = false; // Trạng thái dodge (đang dodge hay không)
+
     public float groundDecay = 0.2f; // Để giảm tốc độ khi đang trên mặt đất
 
     public Rigidbody2D rb; // Thành phần Rigidbody2D của nhân vật
