@@ -562,27 +562,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &1293325328 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1669541213038351524, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-  m_PrefabInstance: {fileID: 8435523520874822479}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1293325336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1293325328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7002f976b5004b84399b39ae930d19ba, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthLife: 3
-  currentHealth: 0
-  iFramesDur: 2
-  numberOfflashes: 3
 --- !u!1 &1299592062
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,14 +794,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 3449024960332540466, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: m_IsTrigger
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4237263116213281666, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: jumpSpeed
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 5700171304214110582, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.48
@@ -863,29 +834,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9141979292600950129, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: m_Color.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141979292600950129, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141979292600950129, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 9141979292600950129, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1669541213038351524, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      insertIndex: 6
-      addedObject: {fileID: 1293325336}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:

@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3449024960332540466}
   - component: {fileID: 4237263116213281666}
   - component: {fileID: 7635582527458409708}
+  - component: {fileID: 1397644391306125542}
   - component: {fileID: 6777348875657338708}
   m_Layer: 6
   m_Name: Player
@@ -176,7 +177,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5
-  jumpSpeed: 7
+  jumpSpeed: 10
   dodgeSpeed: 4
   dodgeDirection: 0.5
   groundDecay: 0.2
@@ -204,6 +205,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6981881094532896678}
   climbSpeed: 3
+--- !u!114 &1397644391306125542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1669541213038351524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7002f976b5004b84399b39ae930d19ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthLife: 3
+  currentHealth: 0
+  iFramesDur: 2
+  numberOfflashes: 3
 --- !u!95 &6777348875657338708
 Animator:
   serializedVersion: 5
