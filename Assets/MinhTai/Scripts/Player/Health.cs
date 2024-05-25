@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class Health : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Health : MonoBehaviour
         {
             //Player bị thương 
             //IFrames
+            StartCoroutine(Ivunerability());
         }
         else
         {
@@ -42,5 +44,16 @@ public class Health : MonoBehaviour
         }
     }
 
-    public void     
+    private IEnumerator Ivunerability()
+    {
+        Physics2D.IgnoreLayerCollision(6, 9, true);
+        for (int i = 0; i < numberOfflashes; i++)
+        {
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            yield return new WaitForSeconds(iFramesDur / (numberOfflashes * 2));
+            spriteRend.color = Color.white;
+            yield return new WaitForSeconds(iFramesDur / (numberOfflashes * 2));
+        }
+        Physics2D.IgnoreLayerCollision(6, 9, false);
+    }
 }
