@@ -5,11 +5,13 @@ TagManager:
   serializedVersion: 2
   tags:
   - enemy
+  - Arrow
+  - Ladder
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ground
   - Water
   - UI
   - 

@@ -78,8 +78,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1406014433
-  m_SortingLayer: 0
+  m_SortingLayerID: 630398885
+  m_SortingLayer: 4
   m_SortingOrder: 0
   m_Sprite: {fileID: -1621039927, guid: 071a16cf15038ae4c897ad11b19ba9eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -185,7 +185,7 @@ MonoBehaviour:
   groundCheck: {fileID: 3999061092594425053}
   groundMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 8
   anim: {fileID: 6777348875657338708}
   arrowPrefab: {fileID: 7802082134764699736, guid: f7246a38eb81e6941b132c331ab79f57, type: 3}
   bowPosition: {fileID: 377591617624557085}
