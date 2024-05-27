@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class Health : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float healthLife = 3f; // Tổng lượng máu của nhân vật
+    [SerializeField] private float healthLife = 100f; // Tổng lượng máu của nhân vật
     public float currentHealth; // Lượng máu hiện tại của nhân vật
     private bool dead; // Trạng thái của nhân vật (sống hay chết)
 
