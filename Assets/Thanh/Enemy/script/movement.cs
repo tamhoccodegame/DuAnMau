@@ -31,38 +31,38 @@ public class movement : MonoBehaviour
     {
 
 
-        direction = transform.position.x - player.transform.position.x;
+  //      direction = transform.position.x - player.transform.position.x;
 
-		if (Mathf.Abs(direction) < detectRange)
-        {
-            //Di player
-            if(Mathf.Abs(transform.position.y - player.transform.position.y) <= 1)
-            {
-                isChasing = true;
-            }
-        }
+		//if (Mathf.Abs(direction) < detectRange)
+  //      {
+  //          //Di player
+  //          if(Mathf.Abs(transform.position.y - player.transform.position.y) <= 1)
+  //          {
+  //              isChasing = true;
+  //          }
+  //      }
 
-        if(isChasing)
-        {
+  //      if(isChasing)
+  //      {
 
-			if (Mathf.Abs(direction) >= 7)
-			{
-				isChasing = false;
+		//	if (Mathf.Abs(direction) >= 7)
+		//	{
+		//		isChasing = false;
 
-			}
+		//	}
 
-			Vector3 newPos = transform.position;
-            newPos.x += -direction * moveSpeed * Time.deltaTime;
+		//	Vector3 newPos = transform.position;
+  //          newPos.x += -direction * moveSpeed * Time.deltaTime;
 
-            transform.position = newPos;
+  //          transform.position = newPos;
 
             
-        }
+  //      }
 
-        else
-        {
+  //      else
+  //      {
 			_rigidbody2D.velocity = new Vector2(x: direction * moveSpeed, y: 0);
-		}
+		//}
 
     }
 
@@ -77,5 +77,15 @@ public class movement : MonoBehaviour
 
         //xoay huong cua slime
         transform.localScale = new Vector2(x: -(Mathf.Sign(_rigidbody2D.velocity.x)), y: 1f);
+
+        
     }
+
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+			player.GetComponent<Health>().TakeDamage(10);
+		}
+	}
 }
