@@ -19,6 +19,10 @@ public class moveplayer : MonoBehaviour
     [SerializeField]
     private float jumpSpeed = 5f;
 
+    public bool flipedLeft;
+    public bool flipedRight;
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,4 +46,5 @@ public class moveplayer : MonoBehaviour
     {
         return Physics2D.BoxCast(_boxcoll.bounds.center, _boxcoll.bounds.size, 0f, Vector2.down, .1f, groundLayers);
     }
+
 }

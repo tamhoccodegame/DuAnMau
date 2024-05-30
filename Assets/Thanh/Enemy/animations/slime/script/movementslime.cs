@@ -4,22 +4,63 @@ using UnityEngine;
 
 public class movementslime : MonoBehaviour
 {
-    public int LeftTotal = 3;
-    public int EnemySpeed = 1;
-    public Rigidbody2D _rigibody;
+    public Transform[] PatrolPoints;
+    public float moveSpeed;
+    public int patrolDestination;
+
+    public Transform playerTransform;
+    public bool isChasing;
+    public float chaseDistance;
+
 
     void Start()
     {
-        _rigibody = gameObject.GetComponent<Rigidbody2D>();
+
     }
 
     void Update()
     {
-        _rigibody.velocity = transform.right * EnemySpeed;    
+        if (isChasing)
+        {
+            if (transform.position.x > playerTransform.position.x)
+            {
+                transform.localScale = new Vector3(1,1,1);
+                transform.position += Vector3.left * moveSpeed * Time.deltaTime;
+            }
+            if (transform.position.x < playerTransform.position.x)
+            {
+                transform.localScale = new Vector3(-1, 1, 1);
+                transform.position += Vector3.right * moveSpeed * Time.deltaTime;
+            }
+        }
+
+        else
+        {
+            if (Vector2.Distance(transform.position, playerTransform.position) < chaseDistance)
+            {
+                isChasing = true;
+            }
+
+            if (patrolDestination == 0)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PatrolPoints[0].position, moveSpeed * Time.deltaTime);
+                if (Vector2.Distance(transform.position, PatrolPoints[0].position) < .2f)
+                {
+                    transform.localScale = new Vector3(1, 1, 1);
+                    patrolDestination = 1;
+                }
+            }
+
+            if (patrolDestination == 1)
+            {
+                transform.position = Vector2.MoveTowards(transform.position, PatrolPoints[1].position, moveSpeed * Time.deltaTime);
+                if (Vector2.Distance(transform.position, PatrolPoints[1].position) < .2f)
+                {
+                    transform.localScale = new Vector3(-1, 1, 1);
+                    patrolDestination = 0;
+                }
+            }
+        }
     }
 
-    public void OnDeath()
-    {
-        Destroy(gameObject);
-    }
 }
