@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 2540698}
   - component: {fileID: 2540697}
   - component: {fileID: 2540699}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPA_Rock_Grass_Water_1
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -265,7 +265,7 @@ GameObject:
   - component: {fileID: 347970986}
   - component: {fileID: 347970989}
   - component: {fileID: 347970990}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPA_Rock_Grass_Water_12
   m_TagString: ground
   m_Icon: {fileID: 0}
@@ -454,6 +454,25 @@ CompositeCollider2D:
   m_OffsetDistance: 0.00005
   m_UseDelaunayMesh: 0
   m_CompositeGameObject: {fileID: 347970985}
+--- !u!1 &1273553041 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 441319801268297199, guid: 7bfb549170fdfda4189a2796c5a1a8a9, type: 3}
+  m_PrefabInstance: {fileID: 5835973763742410743}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1273553048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1273553041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac70a0d7c5d5904c8916960eeb7a810, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  playerhealth: {fileID: 1587260498}
 --- !u!1 &1587260490
 GameObject:
   m_ObjectHideFlags: 0
@@ -464,6 +483,11 @@ GameObject:
   m_Component:
   - component: {fileID: 1587260492}
   - component: {fileID: 1587260491}
+  - component: {fileID: 1587260495}
+  - component: {fileID: 1587260493}
+  - component: {fileID: 1587260497}
+  - component: {fileID: 1587260496}
+  - component: {fileID: 1587260498}
   m_Layer: 0
   m_Name: Player
   m_TagString: player
@@ -538,6 +562,130 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &1587260493
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587260490}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.22, y: 0.28}
+    newSize: {x: 0.22, y: 0.28}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.22, y: 0.28}
+  m_EdgeRadius: 0
+--- !u!95 &1587260495
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587260490}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a2beb20f28265749a88603b8c93cd18, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1587260496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587260490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 709600ebfd1950b4f8757111386c9879, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayers:
+    serializedVersion: 2
+    m_Bits: 512
+  speed: 5
+  jumpSpeed: 5
+--- !u!50 &1587260497
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587260490}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!114 &1587260498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587260490}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6898f366819bba47a9b0c4b01ceaf02, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  health: 0
 --- !u!1 &1696432405
 GameObject:
   m_ObjectHideFlags: 0
@@ -721,7 +869,7 @@ GameObject:
   - component: {fileID: 1921642505}
   - component: {fileID: 1921642504}
   - component: {fileID: 1921642503}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SPA_Rock_Grass_Water_12 (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -938,7 +1086,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 441319801268297199, guid: 7bfb549170fdfda4189a2796c5a1a8a9, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1273553048}
   m_SourcePrefab: {fileID: 100100000, guid: 7bfb549170fdfda4189a2796c5a1a8a9, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
