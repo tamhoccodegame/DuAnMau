@@ -24,7 +24,9 @@ public class PlayerController : MonoBehaviour
     public Transform bowPosition; // Vị trí của cung trên nhân vật
     public float arrowSpeed = 10f; // Tốc độ của mũi tên
     public float arrowLifetime = 5f; // Thời gian tồn tại của mũi tên
-    private bool isShotting = false; // Biến trạng thái bắn
+
+    public float shootCooldown = 1f; // Thời gian hồi chiêu của bắn cung
+    private float lastShotTime; // Thời gian của lần bắn cuối cùng
 
     private bool grounded; // Trạng thái kiểm tra nhân vật có đang trên mặt đất không
     private float xInput; // Biến để nhận giá trị đầu vào từ bàn phím
@@ -127,9 +129,9 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.F)) // Khi nhấn phím F
+        if (Input.GetKeyDown(KeyCode.F) && Time.time >= lastShotTime + shootCooldown) // Khi nhấn phím F và thời gian hồi chiêu đã hết
         {
-            isShotting = true; // Đặt trạng thái là đang bắn
+            lastShotTime = Time.time; // Cập nhập thời gian bắn cuối cùng 
             anim.SetTrigger("isShotting"); // Kích hoạt animation bắn cung
             Invoke(nameof(FireArrow), 0.1f); // Gọi hàm FireArrow sau một khoảng thời gian ngắn để khớp với animation
         }
@@ -162,12 +164,8 @@ public class PlayerController : MonoBehaviour
         anim.SetTrigger("isStaying"); // Đảm bảo nhân vật trở về trạng thái đứng im
         Destroy(arrow, arrowLifetime); // Hủy mũi tên sau khoảng thời gian
 
-        // Đặt trạng thái isShooting về false khi kết thúc animation
-        Invoke(nameof(ResetShootingState), anim.GetCurrentAnimatorStateInfo(0).length);
+      
     }
 
-    void ResetShootingState()
-    {
-        isShotting = false; // Đặt trạng thái bắn về false
-    }
+   
 }
