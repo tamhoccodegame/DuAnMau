@@ -187,7 +187,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   anim: {fileID: 6777348875657338708}
-  arrowPrefab: {fileID: 7802082134764699736, guid: f7246a38eb81e6941b132c331ab79f57, type: 3}
+  arrowPrefab: {fileID: 7332273284096591139, guid: f7246a38eb81e6941b132c331ab79f57, type: 3}
   bowPosition: {fileID: 377591617624557085}
   arrowSpeed: 10
   arrowLifetime: 1

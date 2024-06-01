@@ -4,14 +4,18 @@ using UnityEngine;
 
 public class SpikesTakeDamage : MonoBehaviour
 {
-   [SerializeField] private float damage;
+    public float damageAmount = 25f; // Số máu bị trừ khi va chạm
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.tag == "Player") 
+        if (collision.gameObject.CompareTag("Player"))
         {
-            collision.GetComponent<Health>().TakeDamage(damage);
-            
+            Health playerHealth = collision.gameObject.GetComponent<Health>();
+            if (playerHealth != null)
+            {
+                playerHealth.TakeDamage(damageAmount); // Gọi hàm TakeDamage để giảm máu người chơi
+                Debug.Log("Player hit by Spikes. Current Health: " + playerHealth.currentHealth); // Thông báo va chạm
+            }
         }
     }
 }

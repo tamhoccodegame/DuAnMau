@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
         MoveWithInput(); // Di chuyển nhân vật
         Jump(); // Nhảy
         Dodge(); // Lộn
+
+        
         Shoot(); // Bắn cung
     }
 
@@ -88,10 +90,26 @@ public class PlayerController : MonoBehaviour
             moveSpeed -= dodgeSpeed; // Trả lại tốc độ di chuyển ban đầu
             isDodging = false; // Đặt lại trạng thái dodge
         }
+
+    
+
         else
         {
             dodgeTime -= Time.deltaTime; // Giảm thời gian dodge theo thời gian thực
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDodging) // Nếu đang dodge thì không nhận damage
+        {
+            Debug.Log("Player dodged the attack!");
+            return;
+        }
+
+        // Giảm máu hoặc xử lý khác khi nhận damage
+        Debug.Log($"Player took {damage} damage!");
+        // Implement health reduction or death logic here
     }
 
     void Jump()
@@ -129,7 +147,7 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.F) && Time.time >= lastShotTime + shootCooldown) // Khi nhấn phím F và thời gian hồi chiêu đã hết
+        if (!isDodging && Input.GetKeyDown(KeyCode.F) && Time.time >= lastShotTime + shootCooldown) // Khi nhấn phím F và thời gian hồi chiêu đã hết
         {
             lastShotTime = Time.time; // Cập nhập thời gian bắn cuối cùng 
             anim.SetTrigger("isShotting"); // Kích hoạt animation bắn cung
