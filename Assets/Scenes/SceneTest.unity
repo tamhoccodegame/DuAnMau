@@ -601,25 +601,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4993469373263361449, guid: ee605d693b28d6b4a9117d84045e08f3, type: 3}
-      propertyPath: m_Constraints
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 7029263299184484496, guid: ee605d693b28d6b4a9117d84045e08f3, type: 3}
-      propertyPath: m_IsTrigger
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7441905851913785050, guid: ee605d693b28d6b4a9117d84045e08f3, type: 3}
       propertyPath: m_Name
       value: Spikes
-      objectReference: {fileID: 0}
-    - target: {fileID: 7441905851913785050, guid: ee605d693b28d6b4a9117d84045e08f3, type: 3}
-      propertyPath: m_Layer
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 9056916792276635922, guid: ee605d693b28d6b4a9117d84045e08f3, type: 3}
-      propertyPath: damage
-      value: 25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -672,6 +656,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3878853520076590009, guid: cd0178a093d825745889fc6fcc050b63, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7607707890430521612, guid: cd0178a093d825745889fc6fcc050b63, type: 3}
+      propertyPath: m_BodyType
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8655850844439624236, guid: cd0178a093d825745889fc6fcc050b63, type: 3}
@@ -748,14 +736,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1397644391306125542, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
-      propertyPath: healthLife
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1669541213038351524, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4237263116213281666, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
+      propertyPath: arrowPrefab
+      value: 
+      objectReference: {fileID: 7332273284096591139, guid: f7246a38eb81e6941b132c331ab79f57, type: 3}
     - target: {fileID: 5700171304214110582, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_LocalPosition.x
       value: -7.48
