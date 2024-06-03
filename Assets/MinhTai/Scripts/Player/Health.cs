@@ -10,6 +10,7 @@ public class Health : MonoBehaviour
     [SerializeField] private float healthLife = 100f; // Tổng lượng máu của nhân vật
     public float currentHealth; // Lượng máu hiện tại của nhân vật
     private bool dead; // Trạng thái của nhân vật (sống hay chết)
+    public bool isVunerable = true;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDur; // Thời gian của iFrames (trạng thái bất tử)
@@ -61,6 +62,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Ivunerability()
     {
+        isVunerable = false;
         Physics2D.IgnoreLayerCollision(6, 9, true); // Bỏ qua va chạm giữa các lớp nhân vật và kẻ thù
         for (int i = 0; i < numberOfflashes; i++)
         {
@@ -70,5 +72,6 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDur / (numberOfflashes * 2)); // Chờ một khoảng thời gian
         }
         Physics2D.IgnoreLayerCollision(6, 9, false); // Bật lại va chạm giữa các lớp nhân vật và kẻ thù
+        isVunerable = true; 
     }
 }

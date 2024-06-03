@@ -5,17 +5,29 @@ using UnityEngine;
 public class enemyDamage : MonoBehaviour
 {
     public int damage;
-    public playerhealth playerhealth;
+    //public playerhealth playerhealth;
     // Start is called before the first frame update
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "player")
+        if (collision.gameObject.tag == "Player")
         {
-            playerhealth.TakeDamage(damage);
+            collision.gameObject.GetComponent<Health>().TakeDamage(damage);
         }
     }
-    void Start()
+
+	private void OnCollisionStay2D(Collision2D collision)
+	{
+		if (collision.gameObject.tag == "Player")
+		{
+            if(collision.gameObject.GetComponent<Health>().isVunerable)
+            {
+				collision.gameObject.GetComponent<Health>().TakeDamage(damage);
+			}
+			
+		}
+	}
+	void Start()
     {
         
     }

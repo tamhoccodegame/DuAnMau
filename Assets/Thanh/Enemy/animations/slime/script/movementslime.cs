@@ -8,14 +8,14 @@ public class movementslime : MonoBehaviour
     public float moveSpeed;
     public int patrolDestination;
 
-    public Transform playerTransform;
+    private Transform playerTransform;
     public bool isChasing;
     public float chaseDistance;
 
 
     void Start()
     {
-
+        playerTransform = GameObject.Find("Player").GetComponent<Transform>();
     }
 
     void Update()
