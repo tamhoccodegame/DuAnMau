@@ -4,14 +4,24 @@ using UnityEngine;
 
 public class ArrowDamage : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+	private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
+	public AudioClip[] audioClips;
+	// Start is called before the first frame update
+	void Start()
     {
-        
-    }
+		soundClips.Add("hit", audioClips[0]);
+	}
 
-    // Update is called once per frame
-    void Update()
+	public void PlaySound(string soundName)
+	{
+		if (soundClips.ContainsKey(soundName))
+		{
+			AudioSource.PlayClipAtPoint(soundClips[soundName], transform.position);
+		}
+	}
+
+	// Update is called once per frame
+	void Update()
     {
         
     }
@@ -21,6 +31,7 @@ public class ArrowDamage : MonoBehaviour
 		if(collision.gameObject.tag == "enemy")
         {
             collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+			PlaySound("hit");
             Destroy(gameObject); 
         }
 	}

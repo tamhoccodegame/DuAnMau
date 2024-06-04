@@ -31,11 +31,24 @@ public class PlayerController : MonoBehaviour
     private bool grounded; // Trạng thái kiểm tra nhân vật có đang trên mặt đất không
     private float xInput; // Biến để nhận giá trị đầu vào từ bàn phím
 
+    public AudioClip[] audioClips;
+    private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D
         anim = GetComponent<Animator>(); // Lấy thành phần Animator
         groundCheck = GetComponent<BoxCollider2D>(); // Lấy thành phần BoxCollider2D
+
+        soundClips.Add("footstep", audioClips[0]); 
+    }
+
+    public void PlaySound(string soundName)
+    {
+        if(soundClips.ContainsKey(soundName))
+        {
+            AudioSource.PlayClipAtPoint(soundClips[soundName], transform.position);
+        }
     }
 
     void Update()

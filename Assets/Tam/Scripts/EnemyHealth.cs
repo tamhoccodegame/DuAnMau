@@ -6,6 +6,8 @@ public class EnemyHealth : MonoBehaviour
 {
 	private float maxHealth = 60f;
     private float currentHealth;
+
+    public ParticleSystem hitEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +22,7 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        hitEffect.Play();
         currentHealth -= damage;
 
         if(currentHealth <= 0)
@@ -30,6 +33,7 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
+        FindObjectOfType<ScoreKeeper>().AddScore(20); 
         Destroy(gameObject);
     }
 }
