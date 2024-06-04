@@ -21,19 +21,34 @@ public class PlayerController : MonoBehaviour
     public Animator anim; // Thành phần Animator để điều khiển animation
 
     public GameObject arrowPrefab; // Prefab của mũi tên
-    public Transform bowPosition; // Vị trí cung để sinh ra mũi tên
+    public Transform bowPosition; // Vị trí của cung trên nhân vật
     public float arrowSpeed = 10f; // Tốc độ của mũi tên
-    public float arrowLifetime = 1f; // Thời gian tồn tại của mũi tên
+    public float arrowLifetime = 5f; // Thời gian tồn tại của mũi tên
 
+    public float shootCooldown = 1f; // Thời gian hồi chiêu của bắn cung
+    private float lastShotTime; // Thời gian của lần bắn cuối cùng
 
     private bool grounded; // Trạng thái kiểm tra nhân vật có đang trên mặt đất không
     private float xInput; // Biến để nhận giá trị đầu vào từ bàn phím
+
+    public AudioClip[] audioClips;
+    private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D
         anim = GetComponent<Animator>(); // Lấy thành phần Animator
         groundCheck = GetComponent<BoxCollider2D>(); // Lấy thành phần BoxCollider2D
+
+        soundClips.Add("footstep", audioClips[0]); 
+    }
+
+    public void PlaySound(string soundName)
+    {
+        if(soundClips.ContainsKey(soundName))
+        {
+            AudioSource.PlayClipAtPoint(soundClips[soundName], transform.position);
+        }
     }
 
     void Update()
@@ -42,6 +57,8 @@ public class PlayerController : MonoBehaviour
         MoveWithInput(); // Di chuyển nhân vật
         Jump(); // Nhảy
         Dodge(); // Lộn
+
+        
         Shoot(); // Bắn cung
     }
 
@@ -86,10 +103,26 @@ public class PlayerController : MonoBehaviour
             moveSpeed -= dodgeSpeed; // Trả lại tốc độ di chuyển ban đầu
             isDodging = false; // Đặt lại trạng thái dodge
         }
+
+    
+
         else
         {
             dodgeTime -= Time.deltaTime; // Giảm thời gian dodge theo thời gian thực
         }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (isDodging) // Nếu đang dodge thì không nhận damage
+        {
+            Debug.Log("Player dodged the attack!");
+            return;
+        }
+
+        // Giảm máu hoặc xử lý khác khi nhận damage
+        Debug.Log($"Player took {damage} damage!");
+        // Implement health reduction or death logic here
     }
 
     void Jump()
@@ -127,8 +160,9 @@ public class PlayerController : MonoBehaviour
 
     void Shoot()
     {
-        if (Input.GetKeyDown(KeyCode.F)) // Khi nhấn phím F
+        if (!isDodging && Input.GetKeyDown(KeyCode.F) && Time.time >= lastShotTime + shootCooldown) // Khi nhấn phím F và thời gian hồi chiêu đã hết
         {
+            lastShotTime = Time.time; // Cập nhập thời gian bắn cuối cùng 
             anim.SetTrigger("isShotting"); // Kích hoạt animation bắn cung
             Invoke(nameof(FireArrow), 0.1f); // Gọi hàm FireArrow sau một khoảng thời gian ngắn để khớp với animation
         }
@@ -143,9 +177,7 @@ public class PlayerController : MonoBehaviour
         }
 
         GameObject arrow = Instantiate(arrowPrefab, bowPosition.position, Quaternion.identity); // Tạo mũi tên từ prefab
-        
         Rigidbody2D arrowRb = arrow.GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D của mũi tên
-        
         arrowRb.velocity = new Vector2(transform.localScale.x * arrowSpeed, 0); // Điều chỉnh hướng bay của mũi tên dựa trên hướng của nhân vật
 
         // Kiểm tra hướng của nhân vật và flip mũi tên nếu cần
@@ -161,7 +193,10 @@ public class PlayerController : MonoBehaviour
         arrow.transform.localScale = arrowScale;
 
         anim.SetTrigger("isStaying"); // Đảm bảo nhân vật trở về trạng thái đứng im
-
         Destroy(arrow, arrowLifetime); // Hủy mũi tên sau khoảng thời gian
+
+      
     }
+
+   
 }

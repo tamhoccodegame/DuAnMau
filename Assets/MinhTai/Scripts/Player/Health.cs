@@ -10,20 +10,46 @@ public class Health : MonoBehaviour
     [SerializeField] private float healthLife = 100f; // Tổng lượng máu của nhân vật
     public float currentHealth; // Lượng máu hiện tại của nhân vật
     private bool dead; // Trạng thái của nhân vật (sống hay chết)
+    public bool isVunerable = true;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDur; // Thời gian của iFrames (trạng thái bất tử)
     [SerializeField] private int numberOfflashes; // Số lần nhấp nháy khi ở trạng thái bất tử
     private SpriteRenderer spriteRend; // Thành phần SpriteRenderer để thay đổi màu sắc nhân vật
 
-    private void Awake()
+
+	public AudioClip[] audioClips;
+	private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
+
+	private void Awake()
     {
         currentHealth = healthLife; // Đặt lượng máu hiện tại bằng lượng máu tối đa khi bắt đầu
         spriteRend = GetComponent<SpriteRenderer>(); // Lấy thành phần SpriteRenderer của nhân vật
     }
 
-    public void TakeDamage(float damage)
+	private void Start()
+	{
+		soundClips.Add("hit", audioClips[0]);
+		soundClips.Add("fail", audioClips[1]);
+	}
+
+
+	public void PlaySound(string soundName)
+	{
+		if (soundClips.ContainsKey(soundName))
+		{
+			AudioSource.PlayClipAtPoint(soundClips[soundName], transform.position);
+		}
+	}
+
+    public void RecoverHealth(int amount)
     {
+        currentHealth += amount;
+    }
+
+	public void TakeDamage(float damage)
+    {
+        PlaySound("hit");
         currentHealth = Mathf.Clamp(currentHealth - damage, 0, healthLife); // Giảm lượng máu của nhân vật khi bị tấn công
         if (currentHealth > 0)
         {
@@ -50,6 +76,7 @@ public class Health : MonoBehaviour
         // Ví dụ: hiệu ứng hủy hoặc âm thanh chết
 
         // Chờ một khoảng thời gian ngắn để cho phép các hiệu ứng xảy ra
+        PlaySound("fail"); 
         yield return new WaitForSeconds(0f);
 
         // Hủy tag của đối tượng Player
@@ -61,6 +88,7 @@ public class Health : MonoBehaviour
 
     private IEnumerator Ivunerability()
     {
+        isVunerable = false;
         Physics2D.IgnoreLayerCollision(6, 9, true); // Bỏ qua va chạm giữa các lớp nhân vật và kẻ thù
         for (int i = 0; i < numberOfflashes; i++)
         {
@@ -70,5 +98,6 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDur / (numberOfflashes * 2)); // Chờ một khoảng thời gian
         }
         Physics2D.IgnoreLayerCollision(6, 9, false); // Bật lại va chạm giữa các lớp nhân vật và kẻ thù
+        isVunerable = true; 
     }
 }
