@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class moveplayer : MonoBehaviour
 {
+
     private Rigidbody2D _rigidbody;
     private BoxCollider2D _boxcoll;
     private float direction = 0f;
@@ -26,8 +27,8 @@ public class moveplayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-         _rigidbody = GetComponent<Rigidbody2D>();
-        _boxcoll = GetComponent<BoxCollider2D>();
+        _rigidbody = GetComponent<Rigidbody2D>();
+        _boxcoll = GetComponent<BoxCollider2D>();        
     }
 
     // Update is called once per frame
@@ -46,5 +47,7 @@ public class moveplayer : MonoBehaviour
     {
         return Physics2D.BoxCast(_boxcoll.bounds.center, _boxcoll.bounds.size, 0f, Vector2.down, .1f, groundLayers);
     }
+
+
 
 }
