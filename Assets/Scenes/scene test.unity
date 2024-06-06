@@ -1618,13 +1618,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2024750738746720863, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
+      propertyPath: attackRange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024750738746720863, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
+      propertyPath: attackOffset.x
+      value: -1.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024750738746720863, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
+      propertyPath: attackOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2024750738746720863, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
+      propertyPath: attackMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 3838072877890944298, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.12
+      value: 32.17
       objectReference: {fileID: 0}
     - target: {fileID: 3838072877890944298, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.18
+      value: 0.04
       objectReference: {fileID: 0}
     - target: {fileID: 3838072877890944298, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2552,6 +2568,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 477611511368989525, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
+      propertyPath: maxHealth
+      value: 100
+      objectReference: {fileID: 0}
     - target: {fileID: 2313327299825170990, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
       propertyPath: m_LocalPosition.x
       value: 24.45
@@ -2592,9 +2612,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3391949032557578888, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 5242055394682103250, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 5242055394682103250, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
+      propertyPath: m_Layer
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 5242055394682103250, guid: cf7ce4c871b9e0c458d1cac789cd2976, type: 3}
       propertyPath: m_TagString
