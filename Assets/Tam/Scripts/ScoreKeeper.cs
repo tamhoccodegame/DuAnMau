@@ -10,7 +10,7 @@ public class ScoreKeeper : MonoBehaviour
     private int score;
     private TextMeshProUGUI scoreText;
 
-    public ScoreKeeper instance;
+    public static ScoreKeeper instance;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,11 +21,12 @@ public class ScoreKeeper : MonoBehaviour
         else
         {
 			instance = this;
+			score = 0;
+			scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
 			DontDestroyOnLoad(gameObject);
         }
 
-        score = 0;
-        scoreText = GameObject.Find("ScoreText").GetComponent<TextMeshProUGUI>();
+        
     }
 
     public void AddScore(int amount)

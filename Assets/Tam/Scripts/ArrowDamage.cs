@@ -25,12 +25,13 @@ public class ArrowDamage : MonoBehaviour
     {
         
     }
-
+	
 	private void OnCollisionEnter2D(Collision2D collision)
 	{
 		if(collision.gameObject.tag == "enemy")
         {
-            collision.gameObject.GetComponent<EnemyHealth>().TakeDamage(20);
+            collision.gameObject?.GetComponent<bossHealth>()?.TakeDamage(20);
+			collision.gameObject?.GetComponent<EnemyHealth>()?.TakeDamage(20);
 			PlaySound("hit");
             Destroy(gameObject); 
         }

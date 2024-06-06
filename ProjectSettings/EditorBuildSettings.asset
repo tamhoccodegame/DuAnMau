@@ -6,6 +6,18 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Tam/Scenes/SampleScene.unity
+    path: Assets/Tam/Scenes/StartMenu.unity
+    guid: f1356035b831d054ba0f4d2b9d0d9cdc
+  - enabled: 1
+    path: Assets/Tam/Scenes/Scene_1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/SonLord/Scene2_Son/Scene2.unity
+    guid: 810112098d73336429327b3fc3e6a18c
+  - enabled: 1
+    path: Assets/SonLord/Scene2_Son/SceneFinalBoss.unity
+    guid: 48377ba1880ffb740a1d8b334c06b6b0
+  - enabled: 1
+    path: Assets/SonLord/Scene2_Son/SceneBattleBoss.unity
+    guid: 13d354aff56a0a244b96ad8e0ac45e07
   m_configObjects: {}

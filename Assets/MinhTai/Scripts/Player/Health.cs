@@ -76,14 +76,15 @@ public class Health : MonoBehaviour
         // Ví dụ: hiệu ứng hủy hoặc âm thanh chết
 
         // Chờ một khoảng thời gian ngắn để cho phép các hiệu ứng xảy ra
-        PlaySound("fail"); 
+        PlaySound("fail");
+        FindObjectOfType<UI_Manager>().GameOver();
         yield return new WaitForSeconds(0f);
 
         // Hủy tag của đối tượng Player
         gameObject.tag = "Player";
-        
+        var pc = GetComponent<PlayerController>();
         // Hủy đối tượng
-        Destroy(gameObject); // Hủy đối tượng nhân vật
+        Destroy(pc);// Hủy đối tượng nhân vật
     }
 
     private IEnumerator Ivunerability()
