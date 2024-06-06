@@ -36,5 +36,11 @@ public class arrow : MonoBehaviour
             Destroy(collision.gameObject);
         }
         Destroy(gameObject);
+
+        if(collision.gameObject.tag == "boss")
+        {
+            bossHealth bosshealth = collision.gameObject.GetComponent<bossHealth>();
+            bosshealth.TakeDamage(10);            
+        }
     }
 }
