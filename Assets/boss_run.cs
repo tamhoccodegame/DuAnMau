@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR;
 
 public class boss_run : StateMachineBehaviour
 {
@@ -14,8 +15,8 @@ public class boss_run : StateMachineBehaviour
     {
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
-        animator.GetComponent<Rigidbody2D>();
         boss = animator.GetComponent<boss>();
+        rb = animator.GetComponent<Rigidbody2D>();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
