@@ -7,6 +7,10 @@ TagManager:
   - enemy
   - Arrow
   - Ladder
+  - Exit
+  - Coin
+  - Ground
+  - ground
   layers:
   - Default
   - TransparentFX
@@ -15,7 +19,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - Player
   - enemy
   - 
   - 

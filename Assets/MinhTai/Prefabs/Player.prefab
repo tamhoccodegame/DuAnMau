@@ -60,7 +60,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,7 +79,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 630398885
-  m_SortingLayer: 4
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -1621039927, guid: 071a16cf15038ae4c897ad11b19ba9eb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -176,8 +176,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a2dd41655b18d45b5c9951c81cf8a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
-  jumpSpeed: 13
+  moveSpeed: 6
+  jumpSpeed: 18
   dodgeSpeed: 4
   dodgeDirection: 0.5
   groundDecay: 0.2
@@ -192,6 +192,8 @@ MonoBehaviour:
   arrowSpeed: 10
   arrowLifetime: 1
   shootCooldown: 1
+  audioClips:
+  - {fileID: 8300000, guid: 3c1c10eee3de1874d8ed29b97f489036, type: 3}
 --- !u!114 &7635582527458409708
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,8 +222,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthLife: 100
   currentHealth: 0
-  iFramesDur: 2
+  isVunerable: 1
+  iFramesDur: 1
   numberOfflashes: 3
+  audioClips:
+  - {fileID: 8300000, guid: 5129245bf1257904d86e60d65aec9e82, type: 3}
+  - {fileID: 8300000, guid: 7e3e5c2206306f84c8ad70af19a28fc5, type: 3}
 --- !u!95 &6777348875657338708
 Animator:
   serializedVersion: 5
