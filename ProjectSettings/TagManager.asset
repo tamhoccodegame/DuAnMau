@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Coin
+  - Ladder
+  - Exit
   layers:
   - Default
   - TransparentFX
@@ -51,9 +53,15 @@ TagManager:
   - name: Platform
     uniqueID: 59083471
     locked: 0
-  - name: Coin
+  - name: Item
     uniqueID: 630398885
     locked: 0
-  - name: Player
+  - name: Coin
     uniqueID: 966017831
+    locked: 0
+  - name: Exit
+    uniqueID: 323967297
+    locked: 0
+  - name: Player
+    uniqueID: 2772959195
     locked: 0
