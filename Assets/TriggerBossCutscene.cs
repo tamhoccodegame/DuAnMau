@@ -9,6 +9,7 @@ public class TriggerBossCutscene : MonoBehaviour
 	public GameObject spike;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
+		if(!collision.CompareTag("Player")) return;
 		cutScene.SetActive(true);
 		platformer.SetActive(true);
 		spike.SetActive(true);
