@@ -11,13 +11,13 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Player
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
+  - Platform
+  - Backgrounds
+  - Trap
+  - Ladder
   - 
   - 
   - 
@@ -53,7 +53,7 @@ TagManager:
   - name: Platform
     uniqueID: 59083471
     locked: 0
-  - name: Item
+  - name: Ladder
     uniqueID: 630398885
     locked: 0
   - name: Coin
@@ -64,4 +64,7 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 2772959195
+    locked: 0
+  - name: item
+    uniqueID: 2529269491
     locked: 0

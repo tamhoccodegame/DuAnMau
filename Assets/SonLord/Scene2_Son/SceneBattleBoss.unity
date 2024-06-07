@@ -282,7 +282,7 @@ GameObject:
   - component: {fileID: 472490697}
   - component: {fileID: 472490699}
   - component: {fileID: 472490698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: BackGrounds
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -54373,7 +54373,7 @@ GameObject:
   - component: {fileID: 1021961488}
   - component: {fileID: 1021961487}
   - component: {fileID: 1021961486}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -57678,7 +57678,7 @@ GameObject:
   - component: {fileID: 1128157050}
   - component: {fileID: 1128157049}
   - component: {fileID: 1128157048}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58173,7 +58173,7 @@ GameObject:
   - component: {fileID: 1224650487}
   - component: {fileID: 1224650486}
   - component: {fileID: 1224650485}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Platform(Hiding)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -59947,7 +59947,7 @@ GameObject:
   - component: {fileID: 1560937379}
   - component: {fileID: 1560937378}
   - component: {fileID: 1560937377}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Spike(Hiding)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
