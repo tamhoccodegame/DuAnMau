@@ -5,10 +5,13 @@ using UnityEngine;
 public class TriggerBossCutscene : MonoBehaviour
 {
     public GameObject cutScene;
-
+	public GameObject platformer;
+	public GameObject spike;
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		cutScene.SetActive(true);
+		platformer.SetActive(true);
+		spike.SetActive(true);
 		Destroy(gameObject);
 	}
 }

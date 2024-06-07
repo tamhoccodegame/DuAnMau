@@ -7,6 +7,7 @@ public class GameOverMenu : MonoBehaviour
 {
     public void Retry()
     {
+        FindObjectOfType<UI_HealthBar>().UpdateHealthbar(100); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         gameObject.SetActive(false);
     }
