@@ -42,5 +42,10 @@ public class arrow : MonoBehaviour
             bossHealth bosshealth = collision.gameObject.GetComponent<bossHealth>();
             bosshealth.TakeDamage(10);            
         }
+        if (collision.gameObject.tag == "enemy_bat")
+        {
+            enemy_health enemyhealth = collision.gameObject.GetComponent<enemy_health>();
+            enemyhealth.TakeDamage(5);
+        }
     }
 }
