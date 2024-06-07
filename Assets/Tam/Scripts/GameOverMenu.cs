@@ -8,10 +8,12 @@ public class GameOverMenu : MonoBehaviour
     public void Retry()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        gameObject.SetActive(false);
     }
 
     public void MainMenu()
     {
-        SceneManager.LoadScene(SceneManager.GetSceneByName("StartMenu").buildIndex); 
-    }
+        SceneManager.LoadScene("StartMenu");
+		gameObject.SetActive(false);
+	}
 }

@@ -94,7 +94,7 @@ public class PlayerController : MonoBehaviour
             anim.SetBool("isDodging", true); // Kích hoạt animation dodge
             moveSpeed += dodgeSpeed; // Tăng tốc độ di chuyển
             dodgeTime = dodgeDirection; // Đặt lại thời gian dodge
-            isDodging = true; // Đánh dấu trạng thái đang dodge
+            isDodging = true; // Đánh dấu trạng thái đang 
         }
 
         if (dodgeTime <= 0 && isDodging == true) // Khi thời gian dodge hết và đang trong trạng thái dodge

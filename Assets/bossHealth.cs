@@ -9,6 +9,8 @@ public class bossHealth : MonoBehaviour
     private Animator anim;
     public float currentHealth { get; private set; }
     private bool dead;
+
+    public GameObject winCutscene;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +32,7 @@ public class bossHealth : MonoBehaviour
             {
                 anim.SetTrigger("Ondead");
                 dead = true;
+                winCutscene.SetActive(true);
             }
         }
     }

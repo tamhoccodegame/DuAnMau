@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.Mathematics;
@@ -24,6 +25,7 @@ public class Health : MonoBehaviour
 	private void Awake()
     {
         currentHealth = healthLife; // Đặt lượng máu hiện tại bằng lượng máu tối đa khi bắt đầu
+       
         spriteRend = GetComponent<SpriteRenderer>(); // Lấy thành phần SpriteRenderer của nhân vật
     }
 
@@ -44,14 +46,17 @@ public class Health : MonoBehaviour
 
     public void RecoverHealth(int amount)
     {
-        currentHealth += amount;
+        currentHealth = Mathf.Clamp(currentHealth + amount, 0, healthLife);
+        FindObjectOfType<UI_HealthBar>().UpdateHealthbar(currentHealth);
     }
 
 	public void TakeDamage(float damage)
     {
         PlaySound("hit");
-        currentHealth = Mathf.Clamp(currentHealth - damage, 0, healthLife); // Giảm lượng máu của nhân vật khi bị tấn công
-        if (currentHealth > 0)
+		
+		currentHealth = Mathf.Clamp(currentHealth - damage, 0, healthLife); // Giảm lượng máu của nhân vật khi bị tấn công
+		FindObjectOfType<UI_HealthBar>().UpdateHealthbar(currentHealth);
+		if (currentHealth > 0)
         {
             // Khi nhân vật còn máu
             // Kích hoạt trạng thái bất tử

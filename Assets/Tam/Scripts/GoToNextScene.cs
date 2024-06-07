@@ -9,6 +9,7 @@ public class GoToNextScene : MonoBehaviour
 	{
 		if (collision.CompareTag("Player"))
 		{
+			FindObjectOfType<UI_HealthBar>().UpdateHealthbar(100);
 			SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1); 
 		}
 	}
