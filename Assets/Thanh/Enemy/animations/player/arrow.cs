@@ -45,7 +45,7 @@ public class arrow : MonoBehaviour
         if (collision.gameObject.tag == "enemy_bat")
         {
             enemy_health enemyhealth = collision.gameObject.GetComponent<enemy_health>();
-            enemyhealth.TakeDamage(1);
+            enemyhealth.TakeDamage(5);
         }
     }
 }
