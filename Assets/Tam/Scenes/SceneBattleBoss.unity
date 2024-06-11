@@ -580,7 +580,7 @@ Transform:
   m_GameObject: {fileID: 169948786}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0022583008, y: -0.35014534, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_Follow: {fileID: 1973452163}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 3.79
+    OrthographicSize: 3.5
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
@@ -640,7 +640,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 0}
+  m_BoundingShape2D: {fileID: 1021961491}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &213761652 stripped
@@ -54971,7 +54971,7 @@ PrefabInstance:
     - target: {fileID: 8467423707766595080, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
       propertyPath: m_Controller
       value: 
-      objectReference: {fileID: 9100000, guid: 69ce3d3f2fe586f4aa8cd531430e3298, type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 8467423707766595080, guid: 79424e806bff0634495d7dfb37456cd5, type: 3}
       propertyPath: m_CullingMode
       value: 0
@@ -58747,9 +58747,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 54.643238, y: 20.05754}
+    - - {x: 52.553783, y: 18.310892}
+      - {x: 52.30331, y: 4.9543715}
+      - {x: -9.089796, y: 5.7121286}
       - {x: -8.689831, y: -3.6416435}
-      - {x: 118.83375, y: -4.7848663}
+      - {x: 117.41016, y: -4.4563465}
       - {x: 116.46437, y: 18.765835}
   m_UseDelaunayMesh: 0
 --- !u!1 &1030532962
@@ -58935,6 +58937,7 @@ GameObject:
   - component: {fileID: 1128157050}
   - component: {fileID: 1128157049}
   - component: {fileID: 1128157048}
+  - component: {fileID: 1128157053}
   m_Layer: 0
   m_Name: Spike
   m_TagString: Untagged
@@ -58986,7 +58989,7 @@ CompositeCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -59342,6 +59345,19 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &1128157053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1128157046}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148237c327a2e1243bb8148acc90ed05, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageAmount: 25
 --- !u!1001 &1155263841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -62745,7 +62761,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.79
+  orthographic size: 3.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -62770,7 +62786,7 @@ Transform:
   m_GameObject: {fileID: 1683402460}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: -1, z: -10}
+  m_LocalPosition: {x: 70.00226, y: -0.64985466, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

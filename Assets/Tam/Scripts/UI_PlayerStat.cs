@@ -9,8 +9,8 @@ public class UI_PlayerStat : MonoBehaviour
 {
     private PlayerController player;
 
-    private int healthCount = 1;
-    private int damageCount = 1;
+    private int healthCount = 2;
+    private int damageCount = 2;
     void Start()
     {
         
@@ -20,12 +20,14 @@ public class UI_PlayerStat : MonoBehaviour
         {
             player.SetMaxHealth(healthCount * 100);
             healthCount++;
+            gameObject.SetActive(false);
         };
         transform.Find("Damage").GetComponent<Button_UI>().ClickFunc = () =>
         {
-            player.SetDamage(damageCount * 10); 
+            player.SetDamage(damageCount * 20); 
             damageCount++;
-        };
+			gameObject.SetActive(false);
+		};
     }
 
     public void TurnOnOff()
