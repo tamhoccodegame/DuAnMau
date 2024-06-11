@@ -5,7 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class GoToNextScene : MonoBehaviour
 {
-	public UI_PlayerStat stat;
+	UI_PlayerStat stat;
+
+	private void Awake()
+	{
+		stat = FindObjectOfType<UI_PlayerStat>();
+	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.CompareTag("Player"))

@@ -43,7 +43,7 @@ public class PlayerController : MonoBehaviour
     private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
 
 
-    private float damage;
+    private float damage = 20;
     private float health;
 
 	private void Awake()
