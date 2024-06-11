@@ -22,12 +22,24 @@ public class Health : MonoBehaviour
 	public AudioClip[] audioClips;
 	private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
 
+    private PlayerController player;
+
 	private void Awake()
     {
         currentHealth = healthLife; // Đặt lượng máu hiện tại bằng lượng máu tối đa khi bắt đầu
        
         spriteRend = GetComponent<SpriteRenderer>(); // Lấy thành phần SpriteRenderer của nhân vật
+
+        player = GetComponent<PlayerController>();
+		player.OnMaxHealthChange += Player_OnMaxHealthChange;
     }
+
+	private void Player_OnMaxHealthChange(object sender, PlayerController.OnMaxHealthChangeEventArgs e)
+	{
+		healthLife = e.Health;
+        currentHealth = healthLife;
+        FindObjectOfType<UI_HealthBar>().UpdateHealthbar(currentHealth);
+	}
 
 	private void Start()
 	{

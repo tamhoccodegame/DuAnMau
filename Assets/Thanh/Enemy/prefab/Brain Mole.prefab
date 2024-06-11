@@ -15,11 +15,11 @@ GameObject:
   - component: {fileID: 3591959414741031285}
   - component: {fileID: 6765886239776756869}
   - component: {fileID: 6960852933743320651}
-  - component: {fileID: 477004474594650528}
+  - component: {fileID: 3011369265757418021}
   - component: {fileID: 8582936722505075735}
   m_Layer: 0
   m_Name: Brain Mole Monarch Sprite Sheet_0
-  m_TagString: enemy_bat
+  m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -59,7 +59,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: 630398885
+  m_SortingLayer: 5
   m_SortingOrder: 0
   m_Sprite: {fileID: -550744596, guid: 9bc68bb374f3fc74296c4275f82cdb07, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -125,7 +125,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 625863123545537662}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -197,7 +197,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 2
-  playerhealth: {fileID: 0}
 --- !u!114 &6960852933743320651
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -215,10 +214,9 @@ MonoBehaviour:
   - {fileID: 3893831356373350446}
   moveSpeed: 2
   patrolDestination: 1
-  playerTransform: {fileID: 0}
   isChasing: 0
   chaseDistance: 2
---- !u!114 &477004474594650528
+--- !u!114 &3011369265757418021
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,11 +225,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 625863123545537662}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 685279f6639cfef4491e002184733e7b, type: 3}
+  m_Script: {fileID: 11500000, guid: d9bf592578bb0704ea61a1e2d7fbd1d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHealth: 50
-  health: 0
+  hitEffect: {fileID: 1429954232896169632, guid: 4248790ada3636a4385c7c9d2b2ad6eb, type: 3}
 --- !u!70 &8582936722505075735
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -292,7 +289,7 @@ Transform:
   m_GameObject: {fileID: 757256552972086246}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -1, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -357,7 +354,7 @@ Transform:
   m_GameObject: {fileID: 8770534557712475465}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.040001, y: 0.080000006, z: 0}
+  m_LocalPosition: {x: 9.040001, y: -0.92, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -5,7 +5,15 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
+	public event EventHandler<OnMaxHealthChangeEventArgs> OnMaxHealthChange;
+	public class OnMaxHealthChangeEventArgs : EventArgs
+	{
+		public float Health;
+	}
+
+
+
+	[SerializeField] private float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
     [SerializeField] private float jumpSpeed = 13f; // Tốc độ nhảy của nhân vật
 
     public float dodgeSpeed = 4f; // Tốc độ khi dodge (lộn)
@@ -34,13 +42,25 @@ public class PlayerController : MonoBehaviour
     public AudioClip[] audioClips;
     private Dictionary<string, AudioClip> soundClips = new Dictionary<string, AudioClip>();
 
-    private void Start()
+
+    private float damage;
+    private float health;
+
+	private void Awake()
+	{
+		var uiPlayerStat = FindObjectOfType<UI_PlayerStat>();
+		uiPlayerStat?.SetPlayerController(this);
+	}
+	private void Start()
     {
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D
         anim = GetComponent<Animator>(); // Lấy thành phần Animator
         groundCheck = GetComponent<BoxCollider2D>(); // Lấy thành phần BoxCollider2D
 
-        soundClips.Add("footstep", audioClips[0]); 
+        soundClips.Add("footstep", audioClips[0]);
+
+        
+        Debug.Log("Start");
     }
 
     public void PlaySound(string soundName)
@@ -198,5 +218,21 @@ public class PlayerController : MonoBehaviour
       
     }
 
+    public void SetMaxHealth(int maxHealth)
+    {
+        OnMaxHealthChange?.Invoke(this, new OnMaxHealthChangeEventArgs { Health = maxHealth });
+		Debug.Log(maxHealth);
+	}
+
+    public void SetDamage(float damage)
+    {
+        this.damage = damage;
+        Debug.Log(damage); 
+    }
+
+    public float GetDamage()
+    {
+        return damage;
+    }
    
 }

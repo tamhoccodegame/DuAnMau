@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Tam/Scenes/Scene_1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/SonLord/Scene2_Son/Scene2.unity
-    guid: 810112098d73336429327b3fc3e6a18c
+    path: Assets/Tam/Scenes/Scene2.unity
+    guid: d7e36088971ea284c82b7f28e9eba46e
   - enabled: 1
-    path: Assets/SonLord/Scene2_Son/SceneFinalBoss.unity
-    guid: 48377ba1880ffb740a1d8b334c06b6b0
+    path: Assets/Tam/Scenes/SceneFinalBoss.unity
+    guid: 77055a0515bdc164ab172ebabbcab5df
   - enabled: 1
-    path: Assets/SonLord/Scene2_Son/SceneBattleBoss.unity
-    guid: 13d354aff56a0a244b96ad8e0ac45e07
+    path: Assets/Tam/Scenes/SceneBattleBoss.unity
+    guid: 24594dc234eeb53478d3c899b3bc613f
   m_configObjects: {}

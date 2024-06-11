@@ -9,6 +9,7 @@ public class GameOverMenu : MonoBehaviour
     {
         FindObjectOfType<UI_HealthBar>().UpdateHealthbar(100); 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        GameObject.Find("UpgradeStatUI").SetActive(false);
         gameObject.SetActive(false);
     }
 
