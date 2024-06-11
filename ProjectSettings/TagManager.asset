@@ -58,12 +58,15 @@ TagManager:
   - name: Platform
     uniqueID: 59083471
     locked: 0
-  - name: Ladder
+  - name: Coin
     uniqueID: 937049189
     locked: 0
-  - name: Player
+  - name: Ladder
     uniqueID: 630398885
     locked: 0
-  - name: UI
+  - name: Player
     uniqueID: 1058982645
+    locked: 0
+  - name: UI
+    uniqueID: 3006621493
     locked: 0
