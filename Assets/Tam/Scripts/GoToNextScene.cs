@@ -7,9 +7,9 @@ public class GoToNextScene : MonoBehaviour
 {
 	UI_PlayerStat stat;
 
-	private void Awake()
+	private void Start()
 	{
-		stat = FindObjectOfType<UI_PlayerStat>();
+		stat = GameObject.Find("UpgradeStatUI").GetComponent<UI_PlayerStat>();
 	}
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
@@ -17,13 +17,14 @@ public class GoToNextScene : MonoBehaviour
 		{
 			FindObjectOfType<UI_HealthBar>().UpdateHealthbar(100);
 			
-			Debug.Log((bool)FindObjectOfType<UI_PlayerStat>());
+			Debug.Log(stat != null);
+
 			StartCoroutine(LoadScene()); 
 			
 		}
 	}
 
-	IEnumerator LoadScene()
+	public IEnumerator LoadScene()
 	{
 		yield return new WaitForSeconds(.2f); stat.TurnOnOff();
 		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);

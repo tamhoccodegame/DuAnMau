@@ -721,6 +721,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6012454094853644393, guid: 1b9a3c92734a19e46b054a752c81b3f4, type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
     - target: {fileID: 8959640919414241538, guid: 1b9a3c92734a19e46b054a752c81b3f4, type: 3}
       propertyPath: m_Name
       value: ScoreKeeper
@@ -926,7 +930,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ConfineMode: 0
   m_BoundingVolume: {fileID: 0}
-  m_BoundingShape2D: {fileID: 2006108039}
+  m_BoundingShape2D: {fileID: 1098564156}
   m_ConfineScreenEdges: 1
   m_Damping: 0
 --- !u!1 &487275557
@@ -1375,13 +1379,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 4237263116213281666, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
+      propertyPath: jumpSpeed
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 5700171304214110582, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26
+      value: -25.25
       objectReference: {fileID: 0}
     - target: {fileID: 5700171304214110582, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -16
+      value: -14.34
       objectReference: {fileID: 0}
     - target: {fileID: 5700171304214110582, guid: 053ac55ddc3fa154e8bf019848498621, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2545,6 +2553,7 @@ GameObject:
   - component: {fileID: 1098564153}
   - component: {fileID: 1098564155}
   - component: {fileID: 1098564154}
+  - component: {fileID: 1098564156}
   m_Layer: 7
   m_Name: BackGrounds
   m_TagString: Untagged
@@ -29192,6 +29201,55 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!60 &1098564156
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1098564152}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -30.709328, y: -5.2701416}
+      - {x: -30.953575, y: -24.023323}
+      - {x: 107.75309, y: -23.312656}
+      - {x: 107.913086, y: -5.1404457}
+  m_UseDelaunayMesh: 0
 --- !u!1 &1163229152
 GameObject:
   m_ObjectHideFlags: 0
@@ -29548,8 +29606,8 @@ Camera:
   m_GameObject: {fileID: 1274980291}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -29685,7 +29743,7 @@ Transform:
   m_GameObject: {fileID: 1274980291}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -26, y: -16, z: -10}
+  m_LocalPosition: {x: -25.25, y: -14.34, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -32353,7 +32411,6 @@ GameObject:
   - component: {fileID: 2006108033}
   - component: {fileID: 2006108038}
   - component: {fileID: 2006108037}
-  - component: {fileID: 2006108039}
   - component: {fileID: 2006108036}
   - component: {fileID: 2006108035}
   - component: {fileID: 2006108034}
@@ -48600,55 +48657,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!60 &2006108039
-PolygonCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006108032}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_ForceSendLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ForceReceiveLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_ContactCaptureLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_CallbackLayers:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0, y: 0}
-    oldSize: {x: 0, y: 0}
-    newSize: {x: 0, y: 0}
-    adaptiveTilingThreshold: 0
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: -30.709328, y: -5.2701416}
-      - {x: -30.953575, y: -24.023323}
-      - {x: 107.75309, y: -23.312656}
-      - {x: 107.913086, y: -5.1404457}
-  m_UseDelaunayMesh: 0
 --- !u!1 &2026040328
 GameObject:
   m_ObjectHideFlags: 0
@@ -48677,7 +48685,7 @@ Transform:
   m_GameObject: {fileID: 2026040328}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 10.71, y: 3.0618, z: 0}
+  m_LocalPosition: {x: 10.71, y: 3.3793, z: 0}
   m_LocalScale: {x: 3.7370377, y: 6.3019257, z: 7.8284}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -48747,7 +48755,7 @@ BoxCollider2D:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
     oldSize: {x: 0.32, y: 0.32}
-    newSize: {x: 0.33822507, y: 0.78246045}
+    newSize: {x: 0.3653971, y: 0.8832016}
     adaptiveTilingThreshold: 0.5
     drawMode: 2
     adaptiveTiling: 0
@@ -48795,13 +48803,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 630398885
   m_SortingLayer: 5
-  m_SortingOrder: 10
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 9eeb09da234164f40b0f1b2d993cd6ad, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 0.33822507, y: 0.78246045}
+  m_Size: {x: 0.3653971, y: 0.8832016}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Tam/Scenes/SceneBattleBoss.unity
     guid: 24594dc234eeb53478d3c899b3bc613f
+  - enabled: 1
+    path: Assets/Tam/Scenes/End.unity
+    guid: 35ebcc07f5fc4dc48b54f1a4f1fd305b
   m_configObjects: {}

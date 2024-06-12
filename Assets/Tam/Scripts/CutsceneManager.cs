@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
@@ -8,8 +7,8 @@ using UnityEngine.Timeline;
 public class CutsceneManager : MonoBehaviour
 {
     public Animator bossAnimator;
-    public AnimatorController cutsceneController;
-    public AnimatorController normalController;
+    public RuntimeAnimatorController cutsceneController;
+    public RuntimeAnimatorController normalController;
     PlayableDirector playableDirector;
     // Start is called before the first frame update
     void Start()

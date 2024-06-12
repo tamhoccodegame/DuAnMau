@@ -55,7 +55,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>(); // Lấy thành phần Rigidbody2D
         anim = GetComponent<Animator>(); // Lấy thành phần Animator
-        groundCheck = GetComponent<BoxCollider2D>(); // Lấy thành phần BoxCollider2D
+        //groundCheck = GetComponent<BoxCollider2D>(); // Lấy thành phần BoxCollider2D
 
         soundClips.Add("footstep", audioClips[0]);
 
@@ -85,7 +85,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         CheckGround(); // Kiểm tra xem nhân vật có đang trên mặt đất không
-        ApplyFriction(); // Áp dụng ma sát
+        //ApplyFriction(); // Áp dụng ma sát
     }
 
     void GetInput()
@@ -157,20 +157,21 @@ public class PlayerController : MonoBehaviour
 
     void CheckGround()
     {
-        // Kiểm tra xem nhân vật có đang ở trên mặt đất không
-        grounded = Physics2D.OverlapAreaAll(groundCheck.bounds.min, groundCheck.bounds.max, groundMask).Length > 0;
-        // Nếu nhân vật không ở trên mặt đất, kích hoạt trigger nhảy trong Animator
-        if (!grounded)
+        RaycastHit2D raycastHit2D = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, Mathf.Infinity, groundMask); 
+        Debug.DrawRay(groundCheck.transform.position, Vector2.down * raycastHit2D.distance, Color.red); 
+        if(raycastHit2D.distance < 0.1f)
         {
-            anim.SetBool("isJumping", true);
+            anim.SetBool("isJumping", false);
+            grounded = true;
         }
         else
         {
-            anim.SetBool("isJumping", false);
-        }
+			anim.SetBool("isJumping", true);
+			grounded = false;
+		}
     }
 
-    void ApplyFriction()
+	void ApplyFriction()
     {
         if (grounded && xInput == 0 && rb.velocity.y <= 0) // Nếu nhân vật đang trên mặt đất và không di chuyển
         {

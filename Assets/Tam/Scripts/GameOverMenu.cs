@@ -8,14 +8,16 @@ public class GameOverMenu : MonoBehaviour
     public void Retry()
     {
         FindObjectOfType<UI_HealthBar>().UpdateHealthbar(100); 
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        GameObject.Find("UpgradeStatUI").SetActive(false);
+     
+        GameObject.Find("UpgradeStatUI").GetComponent<UI_PlayerStat>().SetActive(false); 
         gameObject.SetActive(false);
-    }
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+	}
 
     public void MainMenu()
     {
         SceneManager.LoadScene("StartMenu");
+        Destroy(GameObject.Find("ScoreKeeper"));
 		gameObject.SetActive(false);
 	}
 }

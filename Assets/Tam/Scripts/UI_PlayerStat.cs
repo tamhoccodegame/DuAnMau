@@ -14,32 +14,46 @@ public class UI_PlayerStat : MonoBehaviour
     void Start()
     {
         
-        gameObject.SetActive(false);
+        SetActive(false);
 
         transform.Find("Health").GetComponent<Button_UI>().ClickFunc = () =>
         {
             player.SetMaxHealth(healthCount * 100);
             healthCount++;
-            gameObject.SetActive(false);
+            SetActive(false);
         };
         transform.Find("Damage").GetComponent<Button_UI>().ClickFunc = () =>
         {
             player.SetDamage(damageCount * 20); 
             damageCount++;
-			gameObject.SetActive(false);
+			SetActive(false);
 		};
     }
 
+	
+	public void SetActive(bool active)
+    {
+		foreach (Transform child in transform)
+		{
+			child.gameObject.SetActive(active);
+		}
+	}
+
     public void TurnOnOff()
     {
-		if (SceneManager.GetActiveScene().buildIndex + 1 <= 1)
+        int index = SceneManager.GetActiveScene().buildIndex;
+		if ( index + 1 <= 1)
 		{
-			gameObject.SetActive(false);
+			SetActive(false);
+		}
+        else if ( index + 1 >= 5)
+        {
+			Destroy(GameObject.Find("ScoreKeeper"));
 		}
         else
         {
-            gameObject.SetActive(true);
-        }
+			SetActive(true);
+		}
 	}
 
     private void RefreshUI()
