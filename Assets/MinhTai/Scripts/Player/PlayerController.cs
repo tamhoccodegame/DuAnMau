@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
 
 
 
-	[SerializeField] private float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
+	[SerializeField] public float moveSpeed = 5f; // Tốc độ di chuyển của nhân vật
     [SerializeField] private float jumpSpeed = 13f; // Tốc độ nhảy của nhân vật
 
     public float dodgeSpeed = 4f; // Tốc độ khi dodge (lộn)
@@ -93,7 +93,7 @@ public class PlayerController : MonoBehaviour
         xInput = Input.GetAxis("Horizontal"); // Nhận giá trị đầu vào từ trục ngang
     }
 
-    void MoveWithInput()
+    public void MoveWithInput()
     {
         // Cập nhật vận tốc theo hướng ngang
         rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
@@ -107,7 +107,7 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isWalking", xInput != 0);
     }
 
-    void Dodge()
+    public void Dodge()
     {
         if (Input.GetKeyDown(KeyCode.LeftShift) && dodgeTime <= 0) // Khi nhấn phím Shift và thời gian dodge đã hết
         {
@@ -145,7 +145,7 @@ public class PlayerController : MonoBehaviour
         // Implement health reduction or death logic here
     }
 
-    void Jump()
+    public void Jump()
     {
         if (Input.GetKeyDown(KeyCode.Space) && grounded) // Khi nhấn phím Space và đang trên mặt đất
         {
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void CheckGround()
+    public void CheckGround()
     {
         RaycastHit2D raycastHit2D = Physics2D.Raycast(groundCheck.transform.position, Vector2.down, Mathf.Infinity, groundMask); 
         Debug.DrawRay(groundCheck.transform.position, Vector2.down * raycastHit2D.distance, Color.red); 
@@ -171,7 +171,7 @@ public class PlayerController : MonoBehaviour
 		}
     }
 
-	void ApplyFriction()
+    public void ApplyFriction()
     {
         if (grounded && xInput == 0 && rb.velocity.y <= 0) // Nếu nhân vật đang trên mặt đất và không di chuyển
         {
@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Shoot()
+    public void Shoot()
     {
         if (!isDodging && Input.GetKeyDown(KeyCode.F) && Time.time >= lastShotTime + shootCooldown) // Khi nhấn phím F và thời gian hồi chiêu đã hết
         {
@@ -189,7 +189,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void FireArrow()
+    public void FireArrow()
     {
         if (bowPosition == null) // Kiểm tra bowPosition đã được gán chưa
         {
@@ -235,5 +235,9 @@ public class PlayerController : MonoBehaviour
     {
         return damage;
     }
-   
+    public void SetMoveInput(float input)
+    {
+        xInput = input;
+    }
+
 }

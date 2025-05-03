@@ -1,21 +1,23 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class UI_HealthBar : MonoBehaviour
 {
-    private Slider healthSlider;
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private Slider healthSlider; // Thanh máu UI
+
+    private float currentHealth;
+
+    public void UpdateHealthbar(float newHealth)
     {
-        healthSlider = GetComponent<Slider>();
+        currentHealth = newHealth;
+        healthSlider.value = newHealth; // Giả sử Slider có giá trị từ 0 -> maxHealth
     }
 
-   
-
-	public void UpdateHealthbar(float health)
+    public float GetCurrentHealth()
     {
-		healthSlider.value = health / 100f;
-	}
+        return currentHealth;
+    }
+
 }

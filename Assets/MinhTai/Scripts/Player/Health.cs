@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 public class Health : MonoBehaviour
 {
     [Header("Health")]
-    [SerializeField] private float healthLife = 100f; // Tổng lượng máu của nhân vật
+    [SerializeField] public float healthLife = 100f; // Tổng lượng máu của nhân vật
     public float currentHealth; // Lượng máu hiện tại của nhân vật
     private bool dead; // Trạng thái của nhân vật (sống hay chết)
     public bool isVunerable = true;
@@ -118,4 +118,6 @@ public class Health : MonoBehaviour
         Physics2D.IgnoreLayerCollision(6, 9, false); // Bật lại va chạm giữa các lớp nhân vật và kẻ thù
         isVunerable = true; 
     }
+
+
 }
